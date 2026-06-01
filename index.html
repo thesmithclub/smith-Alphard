@@ -260,6 +260,16 @@
   }
   .ba-meta { margin-top: 20px; }
   .ba-meta p { font-size: 14px; color: var(--stone); }
+  /* 시네마틱 영상 프레임 (플레이스홀더 → 영상 삽입) */
+  .cinema-frame {
+    position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+    border: 1px solid rgba(231,225,212,0.1);
+    background: radial-gradient(80% 80% at 50% 40%, #1a1a1f 0%, #0b0b0c 100%);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cinema-frame iframe, .cinema-frame video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; object-fit: cover; }
+  .cinema-ph { font-size: 12px; letter-spacing: 0.3em; color: var(--stone); text-transform: uppercase; }
+  .lead-sub { color: rgba(138,133,124,0.75); font-size: 0.92em; }
 
   /* ───────── PROCESS ───────── */
   .proc-grid { margin-top: 64px; display: grid; grid-template-columns: 1fr; border-top: 1px solid rgba(11,11,12,0.1); }
@@ -428,17 +438,28 @@
     <div class="section-head reveal">
       <p class="eyebrow">BEFORE / AFTER</p>
       <h2>결과로 증명합니다</h2>
-      <p class="lead">슬라이더를 좌우로 움직여 업그레이드 전과 후를 직접 비교해 보세요.</p>
+      <p class="lead">시네마틱 영상을 시청 후 원하시는 옵션을 선택하여 보세요.<br /><span class="lead-sub">(슬라이더를 좌우로 움직여 업그레이드 전과 후를 비교할 수 있습니다.)</span></p>
     </div>
 
     <div data-tabs="ba">
       <div class="tab-nav reveal">
-        <button class="tab-btn active" data-tab="amb">엠비언트 라이트</button>
+        <button class="tab-btn active" data-tab="cinematic">시네마틱 영상</button>
+        <button class="tab-btn" data-tab="amb">엠비언트 라이트</button>
         <button class="tab-btn" data-tab="mat">트렁크 매트</button>
         <button class="tab-btn" data-tab="door">슬라이딩 도어 스위치</button>
       </div>
 
-      <div class="tab-panel active" data-panel="amb">
+      <!-- 시네마틱 영상 (영상 URL 받으면 cinema-frame 안에 iframe/video 삽입) -->
+      <div class="tab-panel active" data-panel="cinematic">
+        <div class="ba-stage"><div class="ba-card">
+          <div class="cinema-frame">
+            <span class="cinema-ph">CINEMATIC FILM</span>
+          </div>
+          <div class="ba-meta"><p>더 스미스가 완성한 알파드, 영상으로 만나보세요.</p></div>
+        </div></div>
+      </div>
+
+      <div class="tab-panel" data-panel="amb">
         <div class="ba-stage"><div class="ba-card">
           <div class="frame" data-ba>
             <div class="ba-panel ba-after" style="background:linear-gradient(135deg,#0b0b0c 0%,#0b0b0c 120%)"><span class="ba-tag">After</span></div>

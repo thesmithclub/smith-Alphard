@@ -114,6 +114,12 @@
     position: absolute; inset: 0; z-index: 2;
     background: linear-gradient(to top, rgba(11,11,12,0.96) 0%, rgba(11,11,12,0.45) 48%, rgba(11,11,12,0.62) 100%);
   }
+  /* 상단 화이트 그라디언트: 로고 가독성 */
+  .hero-toplight {
+    position: absolute; top: 0; left: 0; right: 0; height: 22%; z-index: 3;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.06) 45%, transparent 100%);
+  }
   @media (prefers-reduced-motion: reduce) { .hero-video-wrap { display: none; } }
   .hero-inner { position: relative; z-index: 10; padding-top: 120px; padding-bottom: 72px; }
   .hero h1 {
@@ -307,6 +313,7 @@
     <iframe class="hero-video" src="https://player.vimeo.com/video/1197261923?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1" allow="autoplay; fullscreen" title="배경 영상"></iframe>
   </div>
   <div class="hero-overlay"></div>
+  <div class="hero-toplight"></div>
   <div class="container hero-inner">
     <p class="eyebrow reveal">PRIVATE CONSULTING ATELIER</p>
     <h1 class="reveal" style="transition-delay:.1s">당신의 알파드가 당신의<br />"<span class="gold-wave">품격</span>"이 될 수 있도록.</h1>

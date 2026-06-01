@@ -362,14 +362,20 @@
     <!-- 운영목적 탭. 이미지는 추후 교체(현재 공백) -->
     <div data-tabs="items">
       <div class="tab-nav reveal">
-        <button class="tab-btn active" data-tab="biz">비즈니스</button>
+        <button class="tab-btn active" data-tab="all">모두보기</button>
+        <button class="tab-btn" data-tab="biz">비즈니스</button>
         <button class="tab-btn" data-tab="dressup">드레스업</button>
         <button class="tab-btn" data-tab="comfort">컴포트</button>
         <button class="tab-btn" data-tab="protection">프로텍션</button>
       </div>
 
+      <!-- 모두보기 (JS로 전체 카드 자동 채움) -->
+      <div class="tab-panel active" data-panel="all">
+        <div class="item-grid"></div>
+      </div>
+
       <!-- 비즈니스 -->
-      <div class="tab-panel active" data-panel="biz">
+      <div class="tab-panel" data-panel="biz">
         <div class="item-grid">
           <article class="item-card"><div class="thumb"><img src="https://smith.speedgabia.com/Alphard/item/ap_hang_af.jpg" alt="트렁크 의류 행어" loading="lazy" /></div><div class="meta"><h4>트렁크 의류 행어</h4><p>접이식 옷걸이로 당신의<br />비즈니스 의복을 정갈하게 보관합니다.</p></div></article>
           <article class="item-card"><div class="thumb"></div><div class="meta"><h4>슬라이딩 도어 스위치</h4><p>2열 손잡이 부분에<br />슬라이딩 도어 버튼을 장착합니다.</p></div></article>
@@ -523,6 +529,15 @@
       var pos = x.toFixed(1) + '% center';
       els.forEach(function (el) { el.style.backgroundPosition = pos; });
     }, { passive: true });
+  })();
+
+  // 모두보기 패널: 각 카테고리 카드를 복제해 채움(유지보수 1곳)
+  (function () {
+    var grid = document.querySelector('[data-tabs="items"] [data-panel="all"] .item-grid');
+    if (!grid) return;
+    document.querySelectorAll('[data-tabs="items"] .tab-panel:not([data-panel="all"]) .item-card').forEach(function (card) {
+      grid.appendChild(card.cloneNode(true));
+    });
   })();
 
   // 탭 (운영목적 / 전후비교 공용)

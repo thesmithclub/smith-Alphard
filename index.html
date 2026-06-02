@@ -382,10 +382,12 @@
   .lightbox.open { display: flex; opacity: 1; cursor: zoom-out; }
   .lightbox img {
     max-width: min(1100px, 94vw); max-height: 86vh; width: auto; height: auto;
-    object-fit: contain; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-    transform: scale(0.96); transition: transform 0.4s var(--ease);
+    object-fit: contain; border: 0; outline: 0; box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    opacity: 0; transform: scale(0.96);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
   }
-  .lightbox.open img { transform: scale(1); }
+  /* 완전 로드된 이미지만 표시 → 깨짐/로딩 중 placeholder 테두리 방지 */
+  .lightbox.open img.ready { opacity: 1; transform: scale(1); }
   .lightbox .lb-cap {
     position: absolute; left: 0; right: 0; bottom: 26px; text-align: center;
     color: var(--cream); font-size: 14px; letter-spacing: 0.04em;
@@ -716,7 +718,10 @@
     var lbImg = lb.querySelector('img');
     var lbCap = lb.querySelector('.lb-cap');
     function open(src, cap) {
+      lbImg.classList.remove('ready');
+      lbImg.onload = function () { lbImg.classList.add('ready'); };
       lbImg.src = src; lbImg.alt = cap || ''; lbCap.textContent = cap || '';
+      if (lbImg.complete && lbImg.naturalWidth) lbImg.classList.add('ready');  // 캐시된 경우 즉시
       lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }

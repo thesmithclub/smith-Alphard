@@ -347,6 +347,12 @@
   .proc-step .no { font-family: var(--serif); font-size: 30px; color: rgba(11,11,12,0.3); }
   .proc-step h3 { margin-top: 24px; font-size: clamp(16px,4.2vw,18px); line-height: 1.35; }
   .proc-step p { margin-top: 12px; font-size: 14px; color: rgba(11,11,12,0.6); }
+  /* 다크 섹션일 때 프로세스 보더·텍스트 반전 */
+  .dark .proc-grid { border-top-color: rgba(245,242,234,0.14); }
+  .dark .proc-step { border-bottom-color: rgba(245,242,234,0.14); }
+  @media (min-width: 768px) { .dark .proc-step { border-left-color: rgba(245,242,234,0.14); } }
+  .dark .proc-step .no { color: rgba(245,242,234,0.35); }
+  .dark .proc-step p { color: rgba(245,242,234,0.6); }
 
   /* ───────── CONCIERGE ───────── */
   .concierge { position: relative; padding: 128px 0; text-align: center; overflow: hidden; }
@@ -423,26 +429,8 @@
   <div class="container hero-inner">
     <p class="eyebrow reveal">PRIVATE CONSULTING ATELIER</p>
     <h1 class="reveal" style="transition-delay:.1s">당신의 알파드가 당신의<br />"<span class="gold-wave">품격</span>"이 될 수 있도록.</h1>
-    <p class="sub reveal" style="transition-delay:.2s; max-width:none; color:var(--cream); font-weight:700; font-size:clamp(16px,2.2vw,22px);">더 스미스가 당신의 품격에 맞는 차별화된 컨설팅 &amp; 셋업 서비스를 제공합니다.</p>
     <div class="cta-wrap reveal" style="transition-delay:.3s">
       <a class="btn-outline" href="tel:010-4227-2010">유선 상담 신청 <span class="num">010-4227-2010</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- BRAND INTRO -->
-<section class="block light">
-  <div class="container intro-grid">
-    <div class="reveal">
-      <p class="eyebrow">THE ATELIER</p>
-      <h2 class="title" style="margin-top:24px;">패키지가 아닙니다.
-오직 오너님을 위한 설계입니다.</h2>
-    </div>
-    <div></div>
-    <div class="intro-body">
-      <p class="reveal">알파드는 단순한 SUV가 아닙니다.</p>
-      <p class="reveal quote" style="transition-delay:.08s">"비즈니스의 공간,<br />가족 구성원들의 공간,<br />나만을 위한 공간."</p>
-      <p class="reveal" style="transition-delay:.16s">더 스미스는 규격화된 패키지 상품 판매가 아닌, <br class="br-desktop" />오직 특별한 오너님을 위하여 준비된 서비스를 제공합니다.</p>
     </div>
   </div>
 </section>
@@ -466,7 +454,7 @@
 </section>
 
 <!-- 운영목적별 아이템 리스트 -->
-<section class="block dark" id="items" style="background:#1c1c22">
+<section class="block light" id="items">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">CURATED ITEMS</p>
@@ -593,7 +581,7 @@
 </section>
 
 <!-- 프리미엄 브랜드 시공 -->
-<section class="block dark" id="brands" style="background:#232027">
+<section class="block light" id="brands">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">PROVEN PARTNERS</p>
@@ -604,7 +592,7 @@
 </section>
 
 <!-- PROCESS -->
-<section class="block light" id="process">
+<section class="block dark" id="process">
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">PROCESS</p>

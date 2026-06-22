@@ -215,6 +215,10 @@
     .svc-card p { max-height: 160px; opacity: 1; margin-top: 12px; transform: none; }
     .svc-card h3::after { width: 46px; }
   }
+  /* 모바일: 신차 검수(02) 이미지를 좌측 끝 기준으로 노출 */
+  @media (max-width: 979px) {
+    .svc-card:nth-child(2) .svc-thumb img { object-position: left center; }
+  }
 
   /* ───────── TABS (공통) ───────── */
   .tab-nav {
@@ -445,10 +449,10 @@
     </div>
     <div class="svc-grid">
       <article class="svc-card reveal"><div class="svc-thumb"><img src="https://smith.speedgabia.com/Alphard/info_page/con_01.png" alt="맞춤 옵션 컨설팅 · 설치" loading="lazy" /></div><span class="no">01</span><div class="meta"><h3>맞춤 옵션 컨설팅 · 설치</h3><p>차량 운영 목적에 맞는<br />옵션을 선별 추천하고 정밀 설치합니다.</p></div></article>
-      <article class="svc-card reveal" style="transition-delay:.06s"><div class="svc-thumb"></div><span class="no">02</span><div class="meta"><h3>신차 검수</h3><p>출고 전 도장·패널·전장·내장을<br />기준에 따라 정밀 점검합니다.</p></div></article>
+      <article class="svc-card reveal" style="transition-delay:.06s"><div class="svc-thumb"><img src="https://smith.speedgabia.com/Alphard/info_page/new_car_01.png" alt="신차 검수" loading="lazy" /></div><span class="no">02</span><div class="meta"><h3>신차 검수</h3><p>출고 전 도장·패널·전장·내장을<br />기준에 따라 정밀 점검합니다.</p></div></article>
       <article class="svc-card reveal" style="transition-delay:.12s"><div class="svc-thumb"></div><span class="no">03</span><div class="meta"><h3>디테일링</h3><p>외장·내장 디테일링으로 신차 이상의<br />컨디션으로 마감합니다.</p></div></article>
       <article class="svc-card reveal"><div class="svc-thumb"></div><span class="no">04</span><div class="meta"><h3>PPF (보호 필름)</h3><p>주행 손상으로부터 도장면을<br />보호하는 정밀 PPF 시공.</p></div></article>
-      <article class="svc-card reveal" style="transition-delay:.06s"><div class="svc-thumb"></div><span class="no">05</span><div class="meta"><h3>윈도우 틴팅</h3><p>차광·단열·프라이버시를<br />고려한 프리미엄 틴팅.</p></div></article>
+      <article class="svc-card reveal" style="transition-delay:.06s"><div class="svc-thumb"><img src="https://smith.speedgabia.com/Alphard/item/ap_tint.png" alt="윈도우 틴팅" loading="lazy" /></div><span class="no">05</span><div class="meta"><h3>윈도우 틴팅</h3><p>차광·단열·프라이버시를<br />고려한 프리미엄 틴팅.</p></div></article>
       <article class="svc-card reveal" style="transition-delay:.12s"><div class="svc-thumb"></div><span class="no">06</span><div class="meta"><h3>외부 옵션 · 사용 가이드</h3><p>선별된 외부 옵션 설치 후,<br />사용 가이드까지 함께 제공합니다.</p></div></article>
     </div>
   </div>
